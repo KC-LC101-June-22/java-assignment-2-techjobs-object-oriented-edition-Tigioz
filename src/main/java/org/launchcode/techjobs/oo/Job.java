@@ -20,12 +20,13 @@ public class Job {
     }
     public Job (String aName, Employer aEmployer, Location aLocation, PositionType aPositionType, CoreCompetency aCoreCompetency) {
         this();
-        this.name = aName;
-        this.employer = aEmployer;
-        this.location = aLocation;
-        this.positionType = aPositionType;
-        this.coreCompetency = aCoreCompetency;
+        name = aName;
+        employer = aEmployer;
+        location = aLocation;
+        positionType = aPositionType;
+        coreCompetency = aCoreCompetency;
     }
+
 
 
     @Override
@@ -85,6 +86,42 @@ public class Job {
         return id;
     }
 
+
+    @Override
+    public String toString() {
+
+        String DNA = "Data not available";
+
+        if (name == "" || name == null )   {
+            name = DNA;
+        }
+        if (employer.getValue().equals("") || employer == null) {
+            employer.setValue(DNA);
+        }
+        if (location == null || location.getValue().equals("")) {
+            location.setValue(DNA);
+        }
+        if (positionType == null || positionType.getValue().equals("")) {
+            positionType.setValue(DNA);
+        }
+        if (coreCompetency == null || coreCompetency.getValue().equals("")) {
+            coreCompetency.setValue(DNA);
+        }
+
+
+        if (name.equals(DNA) && employer.getValue().equals(DNA) && location.getValue().equals(DNA) && positionType.getValue().equals(DNA) && coreCompetency.getValue().equals(DNA)) {
+            return "OOPS! This job does not seem to exist.";
+        }
+        else {
+            return  "\nID: " + id +
+                    "\nName: " + name +
+                    "\nEmployer: " + employer +
+                    "\nLocation: " + location +
+                    "\nPosition Type: " + positionType +
+                    "\nCore Competency: " + coreCompetency +
+                    '\n';
+        }
+    }
     // TODO: Add two constructors - one to initialize a unique ID and a second to initialize the
     //  other five fields. The second constructor should also call the first in order to initialize
     //  the 'id' field.
