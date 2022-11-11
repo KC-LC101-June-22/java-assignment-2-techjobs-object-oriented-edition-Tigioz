@@ -4,10 +4,16 @@ import java.util.Objects;
 
 public class Employer {
 
+
+
+    //fields
     private int id;
     private static int nextId = 1;
     private String value;
 
+
+
+    //constructors
     public Employer() {
         id = nextId;
         nextId++;
@@ -17,6 +23,13 @@ public class Employer {
         this();
         this.value = value;
     }
+
+
+
+
+
+
+
 
     // Custom toString, equals, and hashCode methods:
 
